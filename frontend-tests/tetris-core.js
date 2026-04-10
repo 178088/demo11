@@ -1,4 +1,3 @@
-// tetris-core.js (CommonJS 版本)
 const COLS = 10;
 const ROWS = 20;
 
@@ -36,7 +35,7 @@ function clearLines(grid) {
             grid.splice(i, 1);
             grid.unshift(new Array(COLS).fill(0));
             linesCleared++;
-            i++; // 继续检查同一行
+            i++;
         }
     }
     return linesCleared;
