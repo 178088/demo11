@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>俄罗斯方块 - 全栈版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+    <canvas id="gameCanvas" width="300" height="600"></canvas>
+    <div class="info">
+        <div>得分: <span id="score">0</span></div>
+        <div>下一个:</div>
+        <canvas id="nextCanvas" width="120" height="120"></canvas>
+        <button id="resetBtn">新游戏</button>
+        <div class="leaderboard">
+            <h3>排行榜</h3>
+            <ul id="rankList"></ul>
+        </div>
+    </div>
+</div>
+<!-- 以模块方式加载 game.js，使其可以使用 import 语句 -->
+<script type="module" src="game.js"></script>
+</body>
+</html>
