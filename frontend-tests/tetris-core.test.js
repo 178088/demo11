@@ -14,7 +14,7 @@ test('collision no collision', () => {
 
 test('clearLines removes full row', () => {
     let grid = Array(ROWS).fill().map(() => Array(COLS).fill(0));
-    grid[19] = Array(COLS).fill(1); // 最后一行满
+    grid[19] = Array(COLS).fill(1);
     const lines = clearLines(grid);
     expect(lines).toBe(1);
     expect(grid[19].every(cell => cell === 0)).toBe(true);

@@ -1,8 +1,8 @@
-// tetris-core.js
-export const COLS = 10;
-export const ROWS = 20;
+// tetris-core.js (CommonJS 版本)
+const COLS = 10;
+const ROWS = 20;
 
-export function collision(shape, offsetX, offsetY, grid) {
+function collision(shape, offsetX, offsetY, grid) {
     for (let i = 0; i < shape.length; i++) {
         for (let j = 0; j < shape[0].length; j++) {
             if (shape[i][j] !== 0) {
@@ -17,7 +17,7 @@ export function collision(shape, offsetX, offsetY, grid) {
     return false;
 }
 
-export function mergePiece(grid, piece) {
+function mergePiece(grid, piece) {
     for (let i = 0; i < piece.shape.length; i++) {
         for (let j = 0; j < piece.shape[0].length; j++) {
             if (piece.shape[i][j] !== 0) {
@@ -29,20 +29,20 @@ export function mergePiece(grid, piece) {
     }
 }
 
-export function clearLines(grid) {
+function clearLines(grid) {
     let linesCleared = 0;
     for (let i = ROWS - 1; i >= 0; i--) {
         if (grid[i].every(cell => cell !== 0)) {
             grid.splice(i, 1);
             grid.unshift(new Array(COLS).fill(0));
             linesCleared++;
-            i++;
+            i++; // 继续检查同一行
         }
     }
     return linesCleared;
 }
 
-export function calculateScore(linesCleared) {
+function calculateScore(linesCleared) {
     switch (linesCleared) {
         case 1: return 100;
         case 2: return 300;
@@ -52,7 +52,7 @@ export function calculateScore(linesCleared) {
     }
 }
 
-export function rotateShape(shape) {
+function rotateShape(shape) {
     const rows = shape.length;
     const cols = shape[0].length;
     const rotated = Array(cols).fill().map(() => Array(rows).fill(0));
@@ -63,3 +63,13 @@ export function rotateShape(shape) {
     }
     return rotated;
 }
+
+module.exports = {
+    COLS,
+    ROWS,
+    collision,
+    mergePiece,
+    clearLines,
+    calculateScore,
+    rotateShape
+};

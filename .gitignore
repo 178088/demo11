@@ -1,0 +1,18 @@
+# Maven 
+target/ 
+*.class 
+ 
+# IDE 
+.idea/ 
+*.iml 
+.settings/ 
+.project 
+.classpath 
+ 
+# Node / frontend tests 
+frontend-tests/node_modules/ 
+frontend-tests/coverage/ 
+frontend-tests/test-results/ 
+ 
+# Logs 
+*.log 
